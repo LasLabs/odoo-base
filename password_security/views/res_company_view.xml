@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+
+        <record id="view_company_form" model="ir.ui.view">
+            <field name="name">res.company.form</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//page[@string='Report Configuration']" position="after">
+                    <page string="Password Policy">
+                        <group>
+                            <group name="expiration_grp" string="Expiration">
+                                <field name="password_expiration"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="length_grp" string="Length">
+                                <field name="password_length"/>
+                            </group>
+                        </group>
+                        <group>
+                            <group name="chars_grp" string="Required Characters">
+                                <field name="password_lower"/>
+                                <field name="password_upper"/>
+                                <field name="password_numeric"/>
+                                <field name="password_special"/>
+                            </group>
+                        </group>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+        
+    </data>
+</openerp>
