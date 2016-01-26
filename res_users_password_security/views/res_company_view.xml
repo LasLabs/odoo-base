@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Copyright (C) 2016-[Now] LasLabs [https://laslabs.com]
+    @author James Foster <jfoster@laslabs.com>
+    The license is in the file __openerp__.py
+-->
+
 <openerp>
     <data>
 
@@ -7,22 +14,22 @@
             <field name="model">res.company</field>
             <field name="inherit_id" ref="base.view_company_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//page[@string='Report Configuration']" position="after">
+                <xpath expr="//notebook" position="inside">
                     <page string="Password Policy">
                         <group>
-                            <group name="expiration_grp" string="Expiration">
+                            <group string="Expiration">
                                 <field name="password_expiration"/>
                             </group>
-                        </group>
-                        <group>
-                            <group name="length_grp" string="Length">
+                            <group string="Length">
                                 <field name="password_length"/>
                             </group>
                         </group>
-                        <group>
-                            <group name="chars_grp" string="Required Characters">
+                        <group name="chars_grp" string="Required Characters">
+                            <group>
                                 <field name="password_lower"/>
                                 <field name="password_upper"/>
+                            </group>
+                            <group>
                                 <field name="password_numeric"/>
                                 <field name="password_special"/>
                             </group>

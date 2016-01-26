@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) LasLabs, Inc [https://laslabs.com]. All Rights Reserved
-#
-##############################################################################
-#
-#    Collaborators of this module:
-#       Written By: James Foster <jfoster@laslabs.com>
-#
-##############################################################################
+#    Author: James Foster <jfoster@laslabs.com>
+#    Copyright: 2016-TODAY LasLabs, Inc [https://laslabs.com]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -24,22 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
 
-    'name': 'Password Security',
-    'version': '8.0.0.0.1',
-    'author': "LasLabs",
-    'category': 'Base',
-    'depends': [
-        'auth_signup',
-    ],
-    "website": "https://laslabs.com",
-    "licence": "AGPL-3",
-    "data": [
-        'views/res_company_view.xml'
-    ],
-    'test': [
-    ],
-    'installable': True,
-    'auto_install': False,
-}
+from . import controllers
+from . import models

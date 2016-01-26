@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Author: James Foster <jfoster@laslabs.com>
-#    Copyright: 2016 LasLabs, Inc [https://laslabs.com]
+#    Copyright: 2016-TODAY LasLabs, Inc [https://laslabs.com]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,5 +19,4 @@
 #
 ##############################################################################
 
-from . import controllers
-from . import models
+from . import test_res_users

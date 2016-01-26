@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    Author: James Foster <jfoster@laslabs.com>
-#    Copyright: 2016 LasLabs, Inc [https://laslabs.com]
+#    Copyright: 2016-TODAY LasLabs, Inc [https://laslabs.com]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,21 +19,4 @@
 #
 ##############################################################################
 
-from openerp import models, fields
-
-
-class ResCompany(models.Model):
-    _inherit = 'res.company'
-
-    password_expiration = fields.Integer(
-        'Days Until Passwords Expire', default=60
-    )
-    password_length = fields.Integer(
-        'Minimum Number of Characters', default=12
-    )
-    password_lower = fields.Boolean('Require Lowercase Letters', default=True)
-    password_upper = fields.Boolean('Require Uppercase Letters', default=True)
-    password_numeric = fields.Boolean('Require Numeric Digits', default=True)
-    password_special = fields.Boolean(
-        'Require Special Characters', default=True
-    )
+from . import main
