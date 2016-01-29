@@ -1,14 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Copyright (C) LasLabs, Inc [https://laslabs.com]. All Rights Reserved
-#
-##############################################################################
-#
-#    Collaborators of this module:
-#       Written By: Dave Lasley <dave@laslabs.com>
-#
-##############################################################################
+#    Author: Dave Lasley <dave@laslabs.com>
+#    Copyright: 2016-TODAY LasLabs, Inc. [https://laslabs.com]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -24,20 +18,17 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
 
-    'name': 'Partner Multiple Addresses',
-    'version': '8.0.1.0.0',
-    'author': "LasLabs",
-    'category': 'Base',
-    'depends': [
-    ],
-    "website": "https://laslabs.com",
-    "licence": "AGPL-3",
-    "data": [
-    ],
-    'test': [
-    ],
-    'installable': True,
-    'auto_install': False,
-}
+from openerp import models, api
+from openerp.exceptions import ValidationError
+
+from openerp.addons.res_users_case_insensitive.models.fields import CharLower
+
+class ResUsers(models.Model):
+    _inherit = 'res.users'
+    login = CharLower(
+        'Login',
+        size=64,
+        required=True,
+        help='Used to log into the system. Case insensitive.',
+    )
