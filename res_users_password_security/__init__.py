@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Author: Dave Lasley <dave@laslabs.com>
-#    Copyright: 2016-TODAY LasLabs, Inc. [https://laslabs.com]
+#    Author: James Foster <jfoster@laslabs.com>
+#    Copyright: 2016-TODAY LasLabs, Inc [https://laslabs.com]
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,17 +19,5 @@
 #
 ##############################################################################
 
-{
-    "name": "Case Insensitive Logins",
-    "summary": "Makes the login field of res.users case insensitive.",
-    "version": "9.0.1.0.0",
-    "category": "Base",
-    'depends': [
-        'mail',  # Required if shares branch with password_security module
-    ],
-    "website": "https://laslabs.com/",
-    "author": "LasLabs",
-    "license": "AGPL-3",
-    "application": False,
-    "installable": True,
-}
+from . import controllers
+from . import models
