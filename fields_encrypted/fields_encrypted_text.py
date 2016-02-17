@@ -42,7 +42,8 @@ class EncryptedText(fields._String):
         Decrypt a value
         :param value: String to decrypt
         """
-        unpad = lambda s: s[:-ord(s[len(s)-1:])]
+        def unpad(s):
+            return s[:-ord(s[len(s)-1:])]
         value = base64.b64decode(value)
         iv = value[:16]
         cipher = AES.new(self.KEY, AES.MODE_CBC, iv)
@@ -53,8 +54,8 @@ class EncryptedText(fields._String):
         Encrypt a value
         :param value: String to encrypt
         """
-        BS = self.BS
-        pad = lambda s: s + (BS - len(s) % BS) * chr(BS - len(s) % BS)
+        def pad(s, bs=self.BS):
+            return s + (bs - len(s) % bs) * chr(bs - len(2) % bs)
         value = pad(value)
         iv = Random.new().read(AES.block_size)
         cipher = AES.new(self.KEY, AES.MODE_CBC, iv)
