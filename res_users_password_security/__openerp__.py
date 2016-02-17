@@ -1,8 +1,14 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
 #
-#    Author: Dave Lasley <dave@laslabs.com>
-#    Copyright: 2016-TODAY LasLabs, Inc. [https://laslabs.com]
+#    Copyright (C) LasLabs, Inc [https://laslabs.com]. All Rights Reserved
+#
+##############################################################################
+#
+#    Collaborators of this module:
+#       Written By: James Foster <jfoster@laslabs.com>
+#
+##############################################################################
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,18 +24,24 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-
 {
-    "name": "Case Insensitive Logins",
-    "summary": "Makes the login field of res.users case insensitive.",
-    "version": "9.0.1.0.0",
-    "category": "Base",
+
+    'name': 'Password Security',
+    "summary": "Allow admin to set password security requirements.",
+    'version': '9.0.1.0.0',
+    'author': "LasLabs",
+    'category': 'Base',
     'depends': [
-        'mail',  # Required if shares branch with password_security module
+        'auth_signup',
     ],
-    "website": "https://laslabs.com/",
-    "author": "LasLabs",
-    "license": "AGPL-3",
-    "application": False,
-    "installable": True,
+    "website": "https://laslabs.com",
+    "licence": "AGPL-3",
+    "data": [
+        'views/res_company_view.xml',
+    ],
+    'test': [
+        'tests/company.yml',
+    ],
+    'installable': True,
+    'auto_install': False,
 }
