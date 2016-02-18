@@ -17,4 +17,9 @@
             'paramiko',
         ],
     },
+    'data': [
+        'views/connector_sftp_view.xml',
+        'views/res_company_view.xml',
+        'security/ir.model.access.csv',
+    ]
 }
