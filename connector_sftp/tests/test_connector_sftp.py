@@ -28,6 +28,15 @@ class TestConnectorSftp(TransactionCase):
     def _new_record(self, ):
         return self.model_obj.create(self.vals)
 
+    def _test_meth_calls_create_client(self, method_name, *method_params):
+        with mock.patch(paramiko):
+            rec_id = self._new_record()
+            with mock.patch.object(rec_id, '_create_client') as cr_mk:
+                rec_id.client = mock.MagicMock()
+                meth = getattr(rec_id, method_name)
+                meth(*method_params)
+                cr_mk.assert_called_once_with()
+
     @mock.patch(paramiko)
     def test_create_client_initializes_transport(self, mk):
         rec_id = self._new_record()
@@ -62,12 +71,20 @@ class TestConnectorSftp(TransactionCase):
         rec_id._sftp_listdir(expect)
         rec_id.client.listdir.assert_called_once_with(expect)
 
+    def test_sftp_listdir_create_client(self, ):
+        expect = 'Test'
+        self._test_meth_calls_create_client('_sftp_listdir', expect)
+
     @mock.patch(paramiko)
     def test_sftp_stat(self, mk):
         rec_id = self._new_record()
         expect = 'Test'
         rec_id._sftp_stat(expect)
         rec_id.client.stat.assert_called_once_with(expect)
+
+    def test_sftp_stat_create_client(self, ):
+        expect = 'Test'
+        self._test_meth_calls_create_client('_sftp_stat', expect)
 
     @mock.patch(paramiko)
     def test_sftp_open(self, mk):
@@ -76,6 +93,10 @@ class TestConnectorSftp(TransactionCase):
         rec_id._sftp_open(*expect)
         rec_id.client.open.assert_called_once_with(*expect)
 
+    def test_sftp_open_create_client(self, ):
+        expect = 'Test', 'w', 1
+        self._test_meth_calls_create_client('_sftp_open', *expect)
+
     @mock.patch(paramiko)
     def test_sftp_unlink(self, mk):
         rec_id = self._new_record()
@@ -83,9 +104,17 @@ class TestConnectorSftp(TransactionCase):
         rec_id._sftp_unlink(expect)
         rec_id.client.unlink.assert_called_once_with(expect)
 
+    def test_sftp_unlink_create_client(self, ):
+        expect = 'Test'
+        self._test_meth_calls_create_client('_sftp_unlink', expect)
+
     @mock.patch(paramiko)
     def test_sftp_symlink(self, mk):
         rec_id = self._new_record()
         expect = 'Test', 'Dest'
         rec_id._sftp_symlink(*expect)
         rec_id.client.symlink.assert_called_once_with(*expect)
+
+    def test_sftp_symlink_create_client(self, ):
+        expect = 'Test', 'Dest'
+        self._test_meth_calls_create_client('_sftp_symlink', *expect)

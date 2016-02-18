@@ -30,6 +30,7 @@ class ConnectorSftp(models.Model):
     company_id = fields.Many2one(
         string='Company',
         comodel_name='res.company',
+        inverse_name='sftp_connector_ids',
         required=True,
     )
     transport = fields.Binary(

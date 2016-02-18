@@ -2,11 +2,14 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-=============
-SCP Connector
-=============
+==============
+SFTP Connector
+==============
 
-This module allows you to connect & interact with remote SCP hosts
+This module allows you to connect & interact with remote SFTP hosts.
+
+This module does not provide functionality on its own, it is meant to provide
+an abstract SFTP core to be utilized by other business logic.
 
 Installation
 ============
@@ -16,13 +19,6 @@ To install this module, you need to:
 * Install paramiko
   ``pip install paramiko``
 
-
-Usage
-=====
-
-This module does not provide functionality on its own.
-
-An abstract interface is provided for use in child models.
 
 Credits
 =======
