@@ -2,12 +2,22 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-==========================
-Case Insensitive Usernames
-==========================
+================
+Encrypted Fields
+================
 
-This module extends the functionality of res.users to make logins case
-insensitive.
+This module provides seamless encryption for Odoo fields.
+Data is encrypted for storage/caching, then decrypted for use.
+
+Installation
+============
+
+To install this module, you need to:
+
+* Install python requirements
+
+   ``pip install -r ./requirements.txt``
+
 
 Credits
 =======
@@ -20,7 +30,7 @@ Images
 Contributors
 ------------
 
-* Firstname Lastname <email.address@laslabs.com>
+* Dave Lasley <dave@laslabs.com>
 
 Maintainer
 ----------

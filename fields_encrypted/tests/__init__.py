@@ -1,2 +1,5 @@
 # -*- coding: utf-8 -*-
-from . import test_medical_patient
+# © 2015-TODAY LasLabs Inc.
+# License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl.html).
+
+from . import test_fields_encrypted_text
