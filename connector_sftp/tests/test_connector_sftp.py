@@ -57,6 +57,42 @@ class TestConnectorSftp(TransactionCase):
         )
 
     @mock.patch(paramiko)
+    def test_create_client_connects_to_transport_with_no_key(self, mk):
+        del self.vals['private_key']
+        rec_id = self._new_record()
+        rec_id._create_client()
+        mk.Transport().connect.assert_called_once_with(
+            hostkey=self.vals['host_key'],
+            username=self.vals['username'],
+            password=self.vals['password'],
+            pkey=None,
+        )
+
+    @mock.patch(paramiko)
+    def test_create_client_connects_to_transport_with_no_hostkey(self, mk):
+        del self.vals['host_key']
+        rec_id = self._new_record()
+        rec_id._create_client()
+        mk.Transport().connect.assert_called_once_with(
+            hostkey=None,
+            username=self.vals['username'],
+            password=self.vals['password'],
+            pkey=self.vals['private_key'],
+        )
+
+    @mock.patch(paramiko)
+    def test_create_client_obeys_ignore_hostkey(self, mk):
+        self.vals['ignore_host_key'] = True
+        rec_id = self._new_record()
+        rec_id._create_client()
+        mk.Transport().connect.assert_called_once_with(
+            hostkey=None,
+            username=self.vals['username'],
+            password=self.vals['password'],
+            pkey=self.vals['private_key'],
+        )
+
+    @mock.patch(paramiko)
     def test_create_client_inits_sftp_client(self, mk):
         rec_id = self._new_record()
         rec_id._create_client()
