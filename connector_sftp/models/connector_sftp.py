@@ -59,12 +59,15 @@ class ConnectorSftp(models.Model):
             self.transport = paramiko.Transport((
                 self.host, self.port,
             ))
-            host_key = None if self.ignore_host_key else self.host_key
+            if self.ignore_host_key:
+                host_key = None
+            else:
+                host_key = self.host_key if self.host_key else None
             self.transport.connect(
                 hostkey=host_key,
                 username=self.username,
                 password=self.password,
-                pkey=self.private_key,
+                pkey=self.private_key if self.private_key else None,
             )
             self.client = paramiko.SFTPClient.from_transport(
                 self.transport
