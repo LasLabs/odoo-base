@@ -5,7 +5,7 @@
 
     'name': 'Password Security',
     "summary": "Allow admin to set password security requirements.",
-    'version': '9.0.1.0.0',
+    'version': '9.0.1.0.1',
     'author': "LasLabs",
     'category': 'Base',
     'depends': [
