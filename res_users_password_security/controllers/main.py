@@ -12,7 +12,6 @@ from openerp.addons.web.controllers.main import ensure_db, Session
 from ..exceptions import PassError
 
 
-
 class PasswordSecuritySession(Session):
 
     @http.route('/web/session/change_password', type='json', auth="user")
