@@ -4,11 +4,13 @@
 
 import operator
 
-from openerp import http
+from openerp import http, _
 from openerp.http import request
 from openerp.addons.auth_signup.controllers.main import AuthSignupHome
 from openerp.addons.web.controllers.main import ensure_db, Session
-from openerp.tools.translate import _
+
+from ..exceptions import PassError
+
 
 
 class PasswordSecuritySession(Session):
@@ -51,6 +53,17 @@ class PasswordSecurityHome(AuthSignupHome):
         user_id.action_expire_password()
         redirect = user_id.partner_id.signup_url
         return http.redirect_with_hash(redirect)
+
+    @http.route('/web/signup', type='http', auth='public', website=True)
+    def web_auth_signup(self, *args, **kw):
+        try:
+            return super(PasswordSecurityHome, self).web_auth_signup(
+                *args, **kw
+            )
+        except PassError, e:
+            qcontext = self.get_auth_signup_qcontext()
+            qcontext['error'] = _(e.message)
+            return request.render('auth_signup.signup', qcontext)
 
     @http.route(
         '/web/reset_password',
