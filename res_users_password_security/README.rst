@@ -28,6 +28,42 @@ Configuration
 Password complexity requirements will be enforced upon next password change for
 any user in that company.
 
+
+Settings & Defaults
+-------------------
+
+These are defined at the company level:
+
++---------------------+---------+------------------------------------------+
+| Name                | Default |  Description                             |
++=====================+=========+==========================================+
+| password_expiration | 60      | Days until passwords expire              |
++---------------------+---------+------------------------------------------+
+| password_length     | 12      | Minimum number of characters in password |
++---------------------+---------+------------------------------------------+
+| password_lower      | True    | Require lowercase letter in password     |
++---------------------+---------+------------------------------------------+
+| password_upper      | True    | Require uppercase letters in password    |
++---------------------+---------+------------------------------------------+
+| password_numeric    | True    | Require number in password               |
++---------------------+---------+------------------------------------------+
+| password_special    | True    | Require special character in password    |
++---------------------+---------+------------------------------------------+
+
+
+Known Issues / Roadmap
+======================
+
+
+Bug Tracker
+===========
+
+Bugs are tracked on `GitHub Issues
+<https://github.com/LasLabs/odoo-base/issues>`_. In case of trouble, please
+check there if your issue has already been reported. If you spotted it first,
+help us to smash it by providing detailed and welcomed feedback.
+
+
 Credits
 =======
 
@@ -40,6 +76,7 @@ Contributors
 ------------
 
 * James Foster <jfoster@laslabs.com>
+* Dave Lasley <dlasley@laslabs.com>
 
 Maintainer
 ----------
