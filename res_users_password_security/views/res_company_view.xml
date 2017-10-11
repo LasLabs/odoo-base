@@ -17,9 +17,9 @@
                 <xpath expr="//notebook" position="inside">
                     <page string="Password Policy">
                         <group>
-                            <!-- <group string="Expiration">
-                                <field name="password_expiration"/>
-                            </group> -->
+                            <group string="Expiration (not supported)">
+                                <field name="password_expiration" readonly="1"/>
+                            </group>
                             <group string="Length">
                                 <field name="password_length"/>
                             </group>

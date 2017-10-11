@@ -8,9 +8,9 @@ from openerp import models, fields
 class ResCompany(models.Model):
     _inherit = 'res.company'
 
-    #password_expiration = fields.Integer(
-    #    'Days', default=60, help='How many days until passwords expire'
-    #)
+    password_expiration = fields.Integer(
+        'Days', help='How many days until passwords expire'
+    )
     password_length = fields.Integer(
         'Characters', default=12, help='Minimum number of characters'
     )
