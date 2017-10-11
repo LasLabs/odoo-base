@@ -69,13 +69,13 @@ class ResUsers(models.Model):
 
     @api.multi
     def _password_has_expired(self, ):
-        return False
-        #if not self.password_write_date:
-        #    return True
-        #write_date = fields.Datetime.from_string(self.password_write_date)
-        #today = fields.Datetime.from_string(fields.Datetime.now())
-        #days = (today - write_date).days
+        if not self.password_write_date:
+            return True
+        write_date = fields.Datetime.from_string(self.password_write_date)
+        today = fields.Datetime.from_string(fields.Datetime.now())
+        days = (today - write_date).days
         #return (days > self.company_id.password_expiration)
+        return False
 
     @api.multi
     def action_expire_password(self):
