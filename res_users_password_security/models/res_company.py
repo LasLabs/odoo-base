@@ -9,7 +9,7 @@ class ResCompany(models.Model):
     _inherit = 'res.company'
 
     password_expiration = fields.Integer(
-        'Days', help='How many days until passwords expire'
+        'Days', default=0, help='How many days until passwords expire (0 means never expire)'
     )
     password_length = fields.Integer(
         'Characters', default=12, help='Minimum number of characters'
