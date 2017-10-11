@@ -11,7 +11,7 @@ and enforces them on the user.
 
 It contains features such as
 
-* Password expiration days
+* Password expiration days (removed - bug fix needed)
 * Password length requirement
 * Password minimum number of lowercase letters
 * Password minimum number of uppercase letters
@@ -34,26 +34,26 @@ Settings & Defaults
 
 These are defined at the company level:
 
-+---------------------+---------+------------------------------------------+
-| Name                | Default |  Description                             |
-+=====================+=========+==========================================+
-| password_expiration | 60      | Days until passwords expire              |
-+---------------------+---------+------------------------------------------+
-| password_length     | 12      | Minimum number of characters in password |
-+---------------------+---------+------------------------------------------+
-| password_lower      | True    | Require lowercase letter in password     |
-+---------------------+---------+------------------------------------------+
-| password_upper      | True    | Require uppercase letters in password    |
-+---------------------+---------+------------------------------------------+
-| password_numeric    | True    | Require number in password               |
-+---------------------+---------+------------------------------------------+
-| password_special    | True    | Require special character in password    |
-+---------------------+---------+------------------------------------------+
++---------------------+---------+-------------------------------------------------------------------+
+| Name                | Default |  Description                                                      |
++=====================+=========+===================================================================+
+| password_expiration | 60      | Days until passwords expire (removed - bug fix needed             |
++---------------------+---------+-------------------------------------------------------------------+
+| password_length     | 12      | Minimum number of characters in password                          |
++---------------------+---------+-------------------------------------------------------------------+
+| password_lower      | True    | Require lowercase letter in password                              |
++---------------------+---------+-------------------------------------------------------------------+
+| password_upper      | True    | Require uppercase letters in password                             |
++---------------------+---------+-------------------------------------------------------------------+
+| password_numeric    | True    | Require number in password                                        |
++---------------------+---------+-------------------------------------------------------------------+
+| password_special    | True    | Require special character in password                             |
++---------------------+---------+-------------------------------------------------------------------+
 
 
 Known Issues / Roadmap
 ======================
-
+20171011: Password expiration date throw bug in odoo 8 - Removed
 
 Bug Tracker
 ===========
